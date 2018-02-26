@@ -1,0 +1,17 @@
+{% import 'macros/navigations.njk' as navigations %}
+
+{% macro header(navs) %}
+    <header>
+        {% asyncEach navigation in navs.primary %}
+            {% if navigation.name == 'de' %}
+                {{ navigations.header(navigation.children) }}
+            {% endif %}
+        {% endeach %}
+    </header>
+{% endmacro %}
+
+{% macro footer() %}
+    <footer>
+        FOOTER
+    </footer>
+{% endmacro %}

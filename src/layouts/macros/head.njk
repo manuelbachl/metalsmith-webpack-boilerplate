@@ -1,0 +1,17 @@
+{% macro title(title, sitetitle = '') %}
+<title>{{ title }} | {{ sitetitle }}</title>
+{% endmacro %}
+
+{% macro favicons(favicons) %}
+    {% asyncEach html in favicons['html'] %}
+        {{ html | safe }}
+    {% endeach %}
+{% endmacro %}
+
+{% macro style(file) %}
+<link rel="stylesheet" href="/{{ file }}"/>
+{% endmacro %}
+
+{% macro script(file, options='') %}
+<script src="/{{ file }}" {{options}}></script>
+{% endmacro %}

@@ -1,0 +1,92 @@
+{% macro header(pages) %}
+    <ul>
+        {% asyncEach page in pages %}
+            <li>
+                {% if page.file %}
+                    <a href="{{ page.file.path }}">{{ page.file.title }}</a>
+                {% else %}
+                    {{ page.name }}
+                {% endif %}
+                {% if page.children != '' %}
+                    <ul>
+                        {{ navChildren(page.children) }}
+                    </ul>
+                {% endif %}
+            </li>
+        {% endeach %}
+    </ul>
+{% endmacro %}
+
+{% macro headerMeta(pages) %}
+    <ul>
+        {% asyncEach page in pages %}
+            <li>
+                {% if page.file %}
+                    <a href="{{ page.file.path }}">{{ page.file.title }}</a>
+                {% else %}
+                    {{ page.name }}
+                {% endif %}
+                {% if page.children != '' %}
+                    <ul>
+                        {{ navChildren(page.children) }}
+                    </ul>
+                {% endif %}
+            </li>
+        {% endeach %}
+    </ul>
+{% endmacro %}
+
+{% macro footer(pages) %}
+    <ul>
+        {% asyncEach page in pages %}
+            <li>
+                {% if page.file %}
+                    <a href="{{ page.file.path }}">{{ page.file.title }}</a>
+                {% else %}
+                    {{ page.name }}
+                {% endif %}
+                {% if page.children != '' %}
+                    <ul>
+                        {{ navChildren(page.children) }}
+                    </ul>
+                {% endif %}
+            </li>
+        {% endeach %}
+    </ul>
+{% endmacro %}
+
+{% macro footerMeta(pages) %}
+    <ul>
+        {% asyncEach page in pages %}
+            <li>
+                {% if page.file %}
+                    <a href="{{ page.file.path }}">{{ page.file.title }}</a>
+                {% else %}
+                    {{ page.name }}
+                {% endif %}
+                {% if page.children != '' %}
+                    <ul>
+                        {{ navChildren(page.children) }}
+                    </ul>
+                {% endif %}
+            </li>
+        {% endeach %}
+    </ul>
+{% endmacro %}
+
+{% macro navChildren(pages) %}
+    {% asyncEach page in pages %}
+        <li>
+            {% if page.file %}
+                <a href="{{ page.file.path }}">{{ page.file.title }}</a>
+            {% else %}
+                {{ page.name }}
+            {% endif %}
+            {% if page.children != '' %}
+                <ul>
+                    {{ navChildren(page.children) }}
+                </ul>
+            {% endif %}
+        </li>
+    {% endeach %}
+{% endmacro %}

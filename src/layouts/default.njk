@@ -1,0 +1,24 @@
+<!doctype html>
+{% import 'macros/head.njk' as head %}
+{% import 'macros/layout.njk' as layout %}
+<html>
+<head>
+    {{ head.title(title, sitemeta['name']) }}
+    {{ head.style(fingerprint['assets/app.bundle.css']) }}
+    {{ head.script(fingerprint['assets/immediate.bundle.js']) }}
+    {{ head.script(fingerprint['assets/app.bundle.js'], 'defer') }}
+    {{ head.favicons(favicons) }}
+</head>
+
+<body>
+    <div class="container-fluid website-wrap">
+        {{ layout.header(navs) }}
+
+        <div class="container content-wrap">
+
+        </div>
+
+        {{ layout.footer() }}
+    </div>
+</body>
+</html>
