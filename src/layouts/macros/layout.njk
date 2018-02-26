@@ -2,7 +2,7 @@
 
 {% macro header(navs) %}
     <header>
-        {% asyncEach navigation in navs.primary %}
+        {% asyncEach navigation in navs.header %}
             {% if navigation.name == 'de' %}
                 {{ navigations.header(navigation.children) }}
             {% endif %}
