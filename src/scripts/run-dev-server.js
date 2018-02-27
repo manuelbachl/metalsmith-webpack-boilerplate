@@ -10,7 +10,7 @@ import stripAnsi from 'strip-ansi'
 
 import metalsmith from './metalsmith'
 import webpackConfig from '../../webpack.config.js'
-import paths from '../config/paths'
+import paths from '../config/plugins/paths'
 
 const debug = Debug('metalsmith-boilerplate')
 

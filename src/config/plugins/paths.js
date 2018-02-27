@@ -1,5 +1,5 @@
 const {resolve, join} = require('path')
-const projectRoot = resolve(__dirname, '..', '..')
+const projectRoot = resolve(__dirname, '..', '..', '..')
 
 module.exports = {
   projectRoot,

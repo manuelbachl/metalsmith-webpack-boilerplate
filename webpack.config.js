@@ -4,7 +4,7 @@ import ExtractTextPlugin from 'extract-text-webpack-plugin'
 import WriteFilePlugin from 'write-file-webpack-plugin'
 import CopyWebpackPlugin from 'copy-webpack-plugin'
 
-import paths from './src/config/paths'
+import paths from './src/config/plugins/paths'
 
 // environment settings
 const __DEV__ = process.env.NODE_ENV !== 'production'

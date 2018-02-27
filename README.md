@@ -27,6 +27,12 @@ yarn
 | `yarn build:prod` | Build production version |
 | `yarn lint` | Checks for syntax errors in css and js |
 
+## Debugging
+
+This boilerplate uses the plugin [metalsmith-debug-ui] to generate human readable debug outputs. You'll find the debug ui when pointing your browser to `https://localhost:3000/debug-ui`.
+
+**IMPORTANT:** Do not deploy the directory `/web/debug-ui` to your production environment - this will expose all the debug-data to your public site!  
+
 ## Directory structure
 
 ```bash
@@ -78,14 +84,23 @@ yarn
 
 ## Redirects
 
-To add redirects for pages, just edit the `alias:` section in the desired index.njk and add the needed paths.
+This boilerplate uses the plugin [metalsmith-alias] to manage redirects directly inside the corresponding target page. To add redirects for pages, just edit the `alias:` section in the desired index.njk and add the needed paths.
+
+Example:
+
+```bash
+alias:
+- alternate-name
+- other/url
+- somepage/that/used/to/be/here.html
+```
 
 ## Navigations
 
 New pages must be assigned to the desired navigations manually. To assign them, add the corresponding navigation name to the `navGroup`-Array like this:
 
 ```bash
-navGroup: [ primary, footer ]
+navGroup: [ header, footer ]
 ```
 
 ### Navigations currently available:
@@ -122,12 +137,20 @@ Sets the date on which the page will be published. Needs rebuild of site (e.g. d
 * [metalsmith-multi-language]
 * [metalsmith-fingerprint-ignore]
 * [metalsmith-favicons]
-* [metalsmith-collections]
+* [metalsmith-auto-collections]
 * [metalsmith-publish]
+* [metalsmith-alias]
 * [metalsmith-permalinks]
 * [metalsmith-navigation]
-* [metalsmith-markdown]
+* [metalsmith-sitemap]
+* [metalsmith-imagemin]
+* [metalsmith-inline-svg]
+* [metalsmith-layouts]
 * [metalsmith-in-place]
+* [metalsmith-markdownit]
+* [metalsmith-beautify]
+* [metalsmith-validate]
+* [metalsmith-debug-ui]
 
 ### Templating (Nunjucks)
 
@@ -143,12 +166,20 @@ Sets the date on which the page will be published. Needs rebuild of site (e.g. d
 [metalsmith-multi-language]: https://github.com/doup/metalsmith-multi-language
 [metalsmith-fingerprint-ignore]: https://github.com/npm-graveyard/metalsmith-fingerprint-ignore
 [metalsmith-favicons]: https://github.com/arccoza/metalsmith-favicons
-[metalsmith-collections]: https://github.com/segmentio/metalsmith-collections
+[metalsmith-auto-collections]: https://github.com/lowmess/metalsmith-auto-collections
 [metalsmith-publish]: https://github.com/mikestopcontinues/metalsmith-publish
+[metalsmith-alias]: https://github.com/fortes/metalsmith-alias
 [metalsmith-permalinks]: https://github.com/segmentio/metalsmith-permalinks
 [metalsmith-navigation]: https://github.com/unstoppablecarl/metalsmith-navigation
-[metalsmith-markdown]: https://github.com/segmentio/metalsmith-markdown
+[metalsmith-sitemap]: https://github.com/ExtraHop/metalsmith-sitemap
+[metalsmith-imagemin]: https://github.com/ahmadnassri/metalsmith-imagemin
+[metalsmith-inline-svg]: https://github.com/meatysolutions/metalsmith-inline-svg
+[metalsmith-layouts]: https://github.com/ismay/metalsmith-layouts
 [metalsmith-in-place]: https://github.com/ismay/metalsmith-in-place
+[metalsmith-markdownit]: https://github.com/mayo/metalsmith-markdownit
+[metalsmith-beautify]: https://github.com/boushley/metalsmith-beautify
+[metalsmith-validate]: https://github.com/mikestopcontinues/metalsmith-validate
+[metalsmith-debug-ui]: https://github.com/leviwheatcroft/metalsmith-debug-ui
 [Nunjucks Templating]: https://mozilla.github.io/nunjucks/templating.html
 [Metalsmith Slack channel]: https://metalsmith-slack.herokuapp.com/
 [axe312ger/metalsmith-webpack-suite]: https://github.com/axe312ger/metalsmith-webpack-suite

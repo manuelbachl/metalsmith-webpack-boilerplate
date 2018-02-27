@@ -4,66 +4,67 @@ import assets from 'metalsmith-assets'
 import multiLanguage from 'metalsmith-multi-language'
 import fingerprint from 'metalsmith-fingerprint-ignore'
 import faviconGenerator from 'metalsmith-favicons'
-// import collections from 'metalsmith-collections'
+// import collect from 'metalsmith-auto-collections'
 import publish from 'metalsmith-publish'
+import alias from 'metalsmith-alias'
 import permalinks from 'metalsmith-permalinks'
-import markdown from 'metalsmith-markdownit'
+import sitemap from 'metalsmith-sitemap'
+import imagemin from 'metalsmith-imagemin'
+import inlineSVG from 'metalsmith-inline-svg'
 import inplace from 'metalsmith-in-place'
+import markdown from 'metalsmith-markdownit'
+import beautify from 'metalsmith-beautify'
+import validate from 'metalsmith-validate'
+import {report} from 'metalsmith-debug-ui'
 
 import {DebugPlugin, StatisticsPlugin} from './metalsmith-helpers'
 
 // import configs
-import navigation from '../config/navigation'
-import paths from '../config/paths'
-import sitemeta from '../config/sitemeta'
-import favicons from '../config/favicons'
-import filters from '../config/filters'
+import config from '../config/config'
 
 const __PROD__ = process.env.NODE_ENV === 'production'
 
-export default new Metalsmith(paths.projectRoot)
+export default new Metalsmith(config.paths.projectRoot)
   .clean(__PROD__)
-  .source(paths.metalsmithSource)
-  .destination(paths.metalsmithDestination)
-  .use(assets({
-    source: './src/assets',
-    destination: './assets'
-  }))
+  .source(config.paths.metalsmithSource)
+  .destination(config.paths.metalsmithDestination)
+  .use(assets(config.assets))
   .use(multiLanguage({default: 'de', locales: ['de', 'en']}))
   .use(fingerprint({pattern: 'assets/app.bundle.css'}))
   .use(fingerprint({pattern: 'assets/immediate.bundle.js'}))
   .use(fingerprint({pattern: 'assets/app.bundle.js'}))
-  .use(faviconGenerator(favicons))
-  .metadata({
-    sitemeta: sitemeta
-  })
-  // .use(collections({
-  //     page: {
-  //         pattern: '**/*.njk',
-  //         sortBy: 'priority',
-  //         reverse: true,
-  //         refer: false
-  //     }
+  .use(report('fingerprint'))
+  .use(faviconGenerator(config.favicons))
+  .use(report('faviconGenerator'))
+  .metadata(config.metadata)
+  .use(report('metadata'))
+  // .use(collect({
+  //   pattern: '**/*.njk',
+  //   settings: {
+  //     sortBy: 'priority',
+  //     reverse: false
+  //   }
   // }))
   .use(publish())
-  .use(permalinks({
-    pattern: ':locale/:title',
-    relative: false
-  }))
-  .use(navigation)
-  .use(inplace({
-    engine: 'nunjucks',
-    pattern: '**/*.njk',
-    engineOptions: {
-      pattern: '**/*.njk',
-      path: paths.projectRoot + '/src/layouts',
-      filters: {
-        jsonDump: filters.jsonDump
-      }
-    }
-  }))
-  .use(markdown({
-    html: true
-  }))
+  .use(alias(config.alias))
+  .use(report('alias'))
+  .use(permalinks(config.permalinks))
+  .use(report('permalinks'))
+  .use(config.navigation)
+  .use(report('navigation'))
+  .use(imagemin(config.imagemin))
+  .use(report('imagemin'))
+  .use(inlineSVG())
+  .use(report('inlineSVG'))
+  .use(inplace(config.inplace))
+  .use(report('inplace'))
+  .use(markdown(config.markdown))
+  .use(report('markdown'))
+  .use(validate(config.validate))
+  .use(report('validate'))
+  .use(beautify(config.beautify))
+  .use(report('beautify'))
+  .use(sitemap(config.sitemap))
+  .use(report('sitemap'))
   .use(DebugPlugin())
   .use(StatisticsPlugin())
