@@ -11,7 +11,7 @@ This project is built on [metalsmith.io]
 ## Project setup
 
 ```bash
-git clone ssh://git@git.uebb.de:12022/m.bachl/rderelaunch.git
+git clone ssh://git@github.com:manuelbachl/metalsmith-webpack-boilerplate.git
 yarn
 ```
 
@@ -134,23 +134,21 @@ Sets the date on which the page will be published. Needs rebuild of site (e.g. d
 ### Included Metalsmith plugins
 
 * [metalsmith-assets]
-* [metalsmith-multi-language]
 * [metalsmith-fingerprint-ignore]
 * [metalsmith-favicons]
-* [metalsmith-auto-collections]
 * [metalsmith-publish]
+* [metalsmith-multi-language]
 * [metalsmith-i18n]
-* [metalsmith-alias]
-* [metalsmith-permalinks]
-* [metalsmith-navigation]
-* [metalsmith-sitemap]
+* [metalsmith-markdownit]
 * [metalsmith-imagemin]
 * [metalsmith-inline-svg]
-* [metalsmith-layouts]
 * [metalsmith-in-place]
-* [metalsmith-markdownit]
-* [metalsmith-beautify]
 * [metalsmith-validate]
+* [metalsmith-beautify]
+* [metalsmith-permalinks]
+* [metalsmith-alias]
+* [metalsmith-navigation]
+* [metalsmith-sitemap]
 * [metalsmith-debug-ui]
 
 ### Templating (Nunjucks)
@@ -163,25 +161,27 @@ Sets the date on which the page will be published. Needs rebuild of site (e.g. d
 
 [metalsmith.io]: https://www.metalsmith.io
 [package.json]: package.json
+
 [metalsmith-assets]: https://github.com/treygriffith/metalsmith-assets
-[metalsmith-multi-language]: https://github.com/doup/metalsmith-multi-language
 [metalsmith-fingerprint-ignore]: https://github.com/npm-graveyard/metalsmith-fingerprint-ignore
 [metalsmith-favicons]: https://github.com/arccoza/metalsmith-favicons
-[metalsmith-auto-collections]: https://github.com/lowmess/metalsmith-auto-collections
 [metalsmith-publish]: https://github.com/mikestopcontinues/metalsmith-publish
+[metalsmith-multi-language]: https://github.com/doup/metalsmith-multi-language
 [metalsmith-i18n]: https://github.com/doup/metalsmith-i18n
-[metalsmith-alias]: https://github.com/fortes/metalsmith-alias
-[metalsmith-permalinks]: https://github.com/segmentio/metalsmith-permalinks
-[metalsmith-navigation]: https://github.com/unstoppablecarl/metalsmith-navigation
-[metalsmith-sitemap]: https://github.com/ExtraHop/metalsmith-sitemap
+[metalsmith-markdownit]: https://github.com/mayo/metalsmith-markdownit
 [metalsmith-imagemin]: https://github.com/ahmadnassri/metalsmith-imagemin
 [metalsmith-inline-svg]: https://github.com/meatysolutions/metalsmith-inline-svg
-[metalsmith-layouts]: https://github.com/ismay/metalsmith-layouts
 [metalsmith-in-place]: https://github.com/ismay/metalsmith-in-place
-[metalsmith-markdownit]: https://github.com/mayo/metalsmith-markdownit
-[metalsmith-beautify]: https://github.com/boushley/metalsmith-beautify
 [metalsmith-validate]: https://github.com/mikestopcontinues/metalsmith-validate
+[metalsmith-beautify]: https://github.com/boushley/metalsmith-beautify
+[metalsmith-permalinks]: https://github.com/segmentio/metalsmith-permalinks
+[metalsmith-alias]: https://github.com/fortes/metalsmith-alias
+[metalsmith-navigation]: https://github.com/unstoppablecarl/metalsmith-navigation
+[metalsmith-sitemap]: https://github.com/ExtraHop/metalsmith-sitemap
 [metalsmith-debug-ui]: https://github.com/leviwheatcroft/metalsmith-debug-ui
+
 [Nunjucks Templating]: https://mozilla.github.io/nunjucks/templating.html
+
 [Metalsmith Slack channel]: https://metalsmith-slack.herokuapp.com/
+
 [axe312ger/metalsmith-webpack-suite]: https://github.com/axe312ger/metalsmith-webpack-suite
