@@ -14,6 +14,7 @@ import validate from 'metalsmith-validate'
 import beautify from 'metalsmith-beautify'
 import permalinks from 'metalsmith-permalinks'
 import alias from 'metalsmith-alias'
+import navigation from 'metalsmith-navigation'
 import sitemap from 'metalsmith-sitemap'
 import {report} from 'metalsmith-debug-ui'
 
@@ -59,7 +60,7 @@ export default new Metalsmith(config.paths.projectRoot)
   .use(report('permalinks'))
   .use(alias(config.alias))
   .use(report('alias'))
-  .use(config.navigation)
+  .use(navigation(config.navigation.configs, config.navigation.settings))
   .use(report('navigation'))
   .use(sitemap(config.sitemap))
   .use(report('sitemap'))

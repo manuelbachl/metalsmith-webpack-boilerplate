@@ -85,7 +85,7 @@ browserSync.init({
   files: [
     {
       match: [
-        resolve(paths.projectRoot, 'content', '**', '*'),
+        // resolve(paths.projectRoot, 'content', '**', '*'),
         resolve(paths.projectRoot, 'src', 'layouts', '**', '*.njk'),
         resolve(paths.projectRoot, 'webpack.config.js'),
         resolve(paths.projectRoot, 'postcss.config.js')

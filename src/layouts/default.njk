@@ -14,6 +14,11 @@
     <div class="container-fluid website-wrap">
         {{ layout.header(navs) }}
 
+        <pre>
+            navs:
+        {{ navs | jsonDump }}
+        </pre>
+
         <div class="container content-wrap">
             {% block content %}
                 {# Content will be rendered here #}
