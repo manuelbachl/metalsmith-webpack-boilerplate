@@ -73,6 +73,7 @@
     "metalsmith-debug-ui": "^0.3.0",
     "metalsmith-favicons": "^1.0.0",
     "metalsmith-fingerprint-ignore": "^2.0.0",
+    "metalsmith-i18n": "^0.2.0",
     "metalsmith-imagemin": "^4.0.0",
     "metalsmith-in-place": "^4.1.1",
     "metalsmith-inline-svg": "^0.1.4",

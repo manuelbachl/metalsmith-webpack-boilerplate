@@ -1,12 +1,17 @@
 ---
 title: Startseite
+permalink: false
 publish:
 position: 10
 navGroup: [ header, footer ]
-canonical: 'de/'
+canonical: '/'
 changefreq: always
 lastmod: 2014-12-01
 priority: 1.0
 private: false
 ---
-{% extends "default.njk" %}
+{% extends 'default.njk' %}
+
+{% block contentblock %}
+    Custom content
+{% endblock %}

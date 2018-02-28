@@ -131,7 +131,7 @@ Sets the date on which the page will be published. Needs rebuild of site (e.g. d
 
 ## Useful docs
 
-### Used Metalsmith plugins
+### Included Metalsmith plugins
 
 * [metalsmith-assets]
 * [metalsmith-multi-language]
@@ -139,6 +139,7 @@ Sets the date on which the page will be published. Needs rebuild of site (e.g. d
 * [metalsmith-favicons]
 * [metalsmith-auto-collections]
 * [metalsmith-publish]
+* [metalsmith-i18n]
 * [metalsmith-alias]
 * [metalsmith-permalinks]
 * [metalsmith-navigation]
@@ -156,7 +157,7 @@ Sets the date on which the page will be published. Needs rebuild of site (e.g. d
 
 * [Nunjucks Templating]
 
-## Based on
+## Based on and inspired by
 
 * [axe312ger/metalsmith-webpack-suite]
 
@@ -168,6 +169,7 @@ Sets the date on which the page will be published. Needs rebuild of site (e.g. d
 [metalsmith-favicons]: https://github.com/arccoza/metalsmith-favicons
 [metalsmith-auto-collections]: https://github.com/lowmess/metalsmith-auto-collections
 [metalsmith-publish]: https://github.com/mikestopcontinues/metalsmith-publish
+[metalsmith-i18n]: https://github.com/doup/metalsmith-i18n
 [metalsmith-alias]: https://github.com/fortes/metalsmith-alias
 [metalsmith-permalinks]: https://github.com/segmentio/metalsmith-permalinks
 [metalsmith-navigation]: https://github.com/unstoppablecarl/metalsmith-navigation

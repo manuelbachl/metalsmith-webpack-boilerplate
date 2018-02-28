@@ -15,7 +15,9 @@
         {{ layout.header(navs) }}
 
         <div class="container content-wrap">
-
+            {% block content %}
+                {# Content will be rendered here #}
+            {% endblock %}
         </div>
 
         {{ layout.footer() }}

@@ -2,9 +2,9 @@
 import Metalsmith from 'metalsmith'
 import assets from 'metalsmith-assets'
 import multiLanguage from 'metalsmith-multi-language'
+import i18n from 'metalsmith-i18n'
 import fingerprint from 'metalsmith-fingerprint-ignore'
 import faviconGenerator from 'metalsmith-favicons'
-// import collect from 'metalsmith-auto-collections'
 import publish from 'metalsmith-publish'
 import alias from 'metalsmith-alias'
 import permalinks from 'metalsmith-permalinks'
@@ -29,7 +29,6 @@ export default new Metalsmith(config.paths.projectRoot)
   .source(config.paths.metalsmithSource)
   .destination(config.paths.metalsmithDestination)
   .use(assets(config.assets))
-  .use(multiLanguage({default: 'de', locales: ['de', 'en']}))
   .use(fingerprint({pattern: 'assets/app.bundle.css'}))
   .use(fingerprint({pattern: 'assets/immediate.bundle.js'}))
   .use(fingerprint({pattern: 'assets/app.bundle.js'}))
@@ -38,32 +37,30 @@ export default new Metalsmith(config.paths.projectRoot)
   .use(report('faviconGenerator'))
   .metadata(config.metadata)
   .use(report('metadata'))
-  // .use(collect({
-  //   pattern: '**/*.njk',
-  //   settings: {
-  //     sortBy: 'priority',
-  //     reverse: false
-  //   }
-  // }))
   .use(publish())
-  .use(alias(config.alias))
-  .use(report('alias'))
-  .use(permalinks(config.permalinks))
-  .use(report('permalinks'))
-  .use(config.navigation)
-  .use(report('navigation'))
+  .use(report('publish'))
+  .use(multiLanguage(config.multilanguage))
+  .use(report('multilanguage'))
+  .use(i18n(config.i18n))
+  .use(report('i18n'))
+  .use(markdown(config.markdown))
+  .use(report('markdown'))
   .use(imagemin(config.imagemin))
   .use(report('imagemin'))
   .use(inlineSVG())
   .use(report('inlineSVG'))
   .use(inplace(config.inplace))
   .use(report('inplace'))
-  .use(markdown(config.markdown))
-  .use(report('markdown'))
   .use(validate(config.validate))
   .use(report('validate'))
   .use(beautify(config.beautify))
   .use(report('beautify'))
+  .use(permalinks(config.permalinks))
+  .use(report('permalinks'))
+  .use(alias(config.alias))
+  .use(report('alias'))
+  .use(config.navigation)
+  .use(report('navigation'))
   .use(sitemap(config.sitemap))
   .use(report('sitemap'))
   .use(DebugPlugin())
